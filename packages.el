@@ -49,8 +49,8 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
                                         ;(unpin! t)
                                         ;
-(package! elfeed-tube :pin "1f5ad2cc26d6290eb77dd36716e5887cb2cd617c")
-(package! elfeed-tube-mpv :pin "1f5ad2cc26d6290eb77dd36716e5887cb2cd617c")
+(package! elfeed-tube :pin "0c3fbc21259e1fa794f3179a53b410ba610231f2")
+(package! elfeed-tube-mpv :pin "0c3fbc21259e1fa794f3179a53b410ba610231f2")
 (package! dired-launch :pin "933aa6b921010c9d33ddf18f48c8ce780443f963")
 (package! org-auto-tangle :pin "817eabf902e759e96782bdc54d2dab36c4a2c5ab")
 (package! smart-tabs-mode :pin "1044c17e42479de943e69cdeb85e4d05ad9cca8c")
