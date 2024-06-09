@@ -21,6 +21,8 @@
 (setq doom-modeline-major-mode-icon t)
 (setq doom-modeline-enable-word-count t)
 
+(map! :leader "z" #'open-line)
+
 (defhydra doom-window-resize (:hint nil)
         "
                 _k_ increase height

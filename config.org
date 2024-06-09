@@ -9,6 +9,7 @@
   - [[#editor][Editor]]
   - [[#doom-modeline][Doom Modeline]]
 - [[#functionality][Functionality]]
+  - [[#custom-editor-binds][Custom Editor Binds]]
   - [[#easy-window-resizing][Easy Window Resizing]]
   - [[#org-mode][Org Mode]]
   - [[#emacs-web-wowser][Emacs Web Wowser]]
@@ -61,6 +62,11 @@ https://www.emacswiki.org/emacs/SmartTabs
 #+end_src
 
 * Functionality
+** Custom Editor Binds
+#+begin_src elisp
+(map! :leader "z" #'open-line)
+#+end_src
+
 ** Easy Window Resizing
 Easy resizing of window splits using hydra mode.
 #+begin_src elisp
@@ -321,6 +327,7 @@ Provides thumbnail, duration, bookmarking and transcript.
 (map! :leader "e u" #'elfeed-update)
 (map! :leader "e t" #'elfeed-tube-mpv)
 #+end_src
+
 
 ** Dired
 Emacs' Directory Editor. A nice and snappy file manager.
