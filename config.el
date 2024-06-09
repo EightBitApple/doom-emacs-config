@@ -120,6 +120,8 @@
 (setq org-plantuml-exec-mode 'plantuml)
 (setq org-plantuml-executable-path "/usr/bin/plantuml")
 
+(map! :leader "t o" #'org-table-toggle-column-width)
+
 (setq browse-url-browser-function 'eww-browse-url)
 
 (add-hook 'eww-mode-hook 'writeroom-mode)

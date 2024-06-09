@@ -207,6 +207,12 @@ The snippet below integrates this with Org Mode.
 (setq org-plantuml-executable-path "/usr/bin/plantuml")
 #+end_src
 
+*** Tables
+**** Bindings
+#+begin_src elisp
+(map! :leader "t o" #'org-table-toggle-column-width)
+#+end_src
+
 ** Emacs Web Wowser
 Emacs' minimal web browser. Pairs nicely with opening feed entries in Elfeed.
 #+begin_src elisp
