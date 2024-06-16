@@ -1,7 +1,7 @@
 (setq doom-theme 'doom-gruvbox)
 (setq doom-font (font-spec :family "FiraCode Nerd Font" :size 12 :weight 'medium))
-(set-frame-parameter nil 'alpha-background 90)
-(add-to-list 'default-frame-alist '(alpha-background . 90))
+(set-frame-parameter nil 'alpha-background 95)
+(add-to-list 'default-frame-alist '(alpha-background . 95))
 
 (setq display-line-numbers-type 'relative)
 
