@@ -1,4 +1,4 @@
-(setq doom-theme 'doom-pine)
+(setq doom-theme 'doom-tomorrow-night)
 (setq doom-font (font-spec :family "FiraCode Nerd Font" :size 12 :weight 'medium))
 (set-frame-parameter nil 'alpha-background 95)
 (add-to-list 'default-frame-alist '(alpha-background . 95))
