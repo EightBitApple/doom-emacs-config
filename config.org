@@ -94,7 +94,7 @@ Easy resizing of window splits using hydra mode.
 *** Basics
 #+begin_src elisp
 (setq org-directory "~/documents/org/")
-(setq org-agenda-files '("~/documents/org/agenda.org"))
+(setq org-agenda-files '("~/documents/org/agenda/"))
 (setq org-log-done 'time)
 #+end_src
 
@@ -315,7 +315,7 @@ Some niceties.
 Use Org Mode to organise feeds rather then listing them in this configuration.
 Elfeed-Org also has the ability to import and export to OPML. Useful for other readers.
 #+begin_src elisp
-(setq rmh-elfeed-org-files (list "~/documents/org/elfeed.org"))
+(setq rmh-elfeed-org-files (list "~/documents/org/elfeed/elfeed.org"))
 #+end_src
 
 *** Elfeed Tube

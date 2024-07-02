@@ -42,7 +42,7 @@
  )
 
 (setq org-directory "~/documents/org/")
-(setq org-agenda-files '("~/documents/org/agenda.org"))
+(setq org-agenda-files '("~/documents/org/agenda/"))
 (setq org-log-done 'time)
 
 (setq org-image-actual-width 512)
@@ -191,7 +191,7 @@
 
 (setq elfeed-goodies/entry-pane-size 0.5)
 
-(setq rmh-elfeed-org-files (list "~/documents/org/elfeed.org"))
+(setq rmh-elfeed-org-files (list "~/documents/org/elfeed/elfeed.org"))
 
 (require 'elfeed-tube)
 (elfeed-tube-setup)
