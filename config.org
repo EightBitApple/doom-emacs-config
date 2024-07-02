@@ -100,7 +100,6 @@ Easy resizing of window splits using hydra mode.
 
 *** Appearance
 #+begin_src elisp
-(setq org-image-actual-width 512)
 (setq org-hide-emphasis-markers nil)
 (setq org-ellipsis "⤵")
 #+end_src
@@ -131,6 +130,7 @@ Tangle code blocks on buffer write.
 *** Images
 #+begin_src elisp
 (setq org-startup-with-inline-images t)
+(setq org-image-actual-width 512)
 #+end_src
 
 *** Org Export

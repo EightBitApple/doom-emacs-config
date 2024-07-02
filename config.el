@@ -45,7 +45,6 @@
 (setq org-agenda-files '("~/documents/org/agenda/"))
 (setq org-log-done 'time)
 
-(setq org-image-actual-width 512)
 (setq org-hide-emphasis-markers nil)
 (setq org-ellipsis "⤵")
 
@@ -68,6 +67,7 @@
   (setq org-auto-tangle-default t))
 
 (setq org-startup-with-inline-images t)
+(setq org-image-actual-width 512)
 
 (with-eval-after-load 'ox-latex
 (add-to-list 'org-latex-classes
