@@ -20,6 +20,7 @@
   - [[#minimap][Minimap]]
   - [[#vterm][Vterm]]
   - [[#debug-adapter-protocol-dap][Debug Adapter Protocol (DAP)]]
+  - [[#macros][Macros]]
 
 * Appearance
 ** Theme
@@ -113,6 +114,7 @@ Tangle code blocks on buffer write.
   :config
   (setq org-auto-tangle-default t))
 #+end_src
+
 *** Images
 #+begin_src elisp
 (setq org-startup-with-inline-images t)
@@ -431,4 +433,10 @@ Adapted from https://www.reddit.com/r/emacs/comments/op4fcm/send_command_to_vter
 (setq read-process-output-max (* 1024 1024)) ;; 1mb
 (setq lsp-idle-delay 0.500)
 (setq lsp-log-io nil) ; if set to true can cause a performance hit
+#+end_src
+
+** Macros
+#+begin_src elisp
+(defalias 'elfeed-youtube
+   (kmacro "0 / c h a n n e l <return> c f / f e e d s / v i d e o s . x m l ? c h a n n e l _ i d - <backspace> = <escape> 0 w i [ <escape> A ] [ <escape>"))
 #+end_src
