@@ -56,3 +56,4 @@
 (package! smart-tabs-mode :pin "1044c17e42479de943e69cdeb85e4d05ad9cca8c")
 (package! org-present :pin "4ec04e1b77dea76d7c30066ccf3200d2e0b7bee9")
 (package! plantuml-mode :pin "ea45a13707abd2a70df183f1aec6447197fc9ccc")
+(package! speed-type :pin "b982ee6081a11837760eeaed73c4f413eefb07b1")
