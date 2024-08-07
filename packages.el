@@ -57,3 +57,4 @@
 (package! org-present :pin "4ec04e1b77dea76d7c30066ccf3200d2e0b7bee9")
 (package! plantuml-mode :pin "ea45a13707abd2a70df183f1aec6447197fc9ccc")
 (package! speed-type :pin "b982ee6081a11837760eeaed73c4f413eefb07b1")
+(package! catppuccin-theme :pin "ed6130f80e8529058cd9f64febcbee4e9db844a1")
