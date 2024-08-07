@@ -240,6 +240,7 @@
 
 (map! :leader "p l" #'personal/playlist-mpv)
 
+(add-hook 'speed-type-mode-hook 'writeroom-mode)
 (map! :leader "d d" #'dap-debug)
 (map! :leader "d c" #'dap-disconnect)
 (map! :leader "d r" #'dap-debug-restart)

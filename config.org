@@ -19,6 +19,7 @@
   - [[#ace-window][Ace Window]]
   - [[#minimap][Minimap]]
   - [[#vterm][Vterm]]
+  - [[#speed-type][Speed Type]]
   - [[#debug-adapter-protocol-dap][Debug Adapter Protocol (DAP)]]
   - [[#macros][Macros]]
 
@@ -410,6 +411,12 @@ Adapted from https://www.reddit.com/r/emacs/comments/op4fcm/send_command_to_vter
 
 #+begin_src elisp
 (map! :leader "p l" #'personal/playlist-mpv)
+#+end_src
+
+** Speed Type
+*** Hooks
+#+begin_src elisp
+(add-hook 'speed-type-mode-hook 'writeroom-mode)
 #+end_src
 
 ** Debug Adapter Protocol (DAP)
