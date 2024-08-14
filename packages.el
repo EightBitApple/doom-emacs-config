@@ -50,6 +50,7 @@
                                         ;(unpin! t)
                                         ;
 (package! elfeed-tube :pin "0c3fbc21259e1fa794f3179a53b410ba610231f2")
+(package! elfeed-goodies :pin "544ef42ead011d960a0ad1c1d34df5d222461a6b")
 (package! elfeed-tube-mpv :pin "0c3fbc21259e1fa794f3179a53b410ba610231f2")
 (package! dired-launch :pin "933aa6b921010c9d33ddf18f48c8ce780443f963")
 (package! org-auto-tangle :pin "817eabf902e759e96782bdc54d2dab36c4a2c5ab")
@@ -58,3 +59,4 @@
 (package! plantuml-mode :pin "ea45a13707abd2a70df183f1aec6447197fc9ccc")
 (package! speed-type :pin "b982ee6081a11837760eeaed73c4f413eefb07b1")
 (package! catppuccin-theme :pin "8affab8139ec90649e96c08e114ca66bea108045")
+(package! org-auto-tangle :pin "817eabf902e759e96782bdc54d2dab36c4a2c5ab")
