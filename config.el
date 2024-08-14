@@ -1,122 +1,88 @@
-(setq doom-theme 'catppuccin)
-(setq doom-font (font-spec :family "FiraCode Nerd Font" :size 12 :weight 'medium))
+(setq doom-theme 'catppuccin
+      doom-font (font-spec :family "FiraCode Nerd Font" :size 12 :weight 'medium))
+
 (set-frame-parameter nil 'alpha-background 95)
 (add-to-list 'default-frame-alist '(alpha-background . 95))
 
-(setq display-line-numbers-type 'relative)
+(setq display-line-numbers-type 'relative
+      tab-width 4)
 
-(setq-default tab-width 4)
-(defvaralias 'c-basic-offset 'tab-width)
-(defvaralias 'cperl-indent-level 'tab-width)
-
-(smart-tabs-insinuate 'c 'javascript 'java)
+(after! smart-tabs-mode
+  (smart-tabs-insinuate 'c 'c++ 'javascript 'java 'python)
 
 (setq-default indent-tabs-mode nil)
 (add-hook 'c-mode-common-hook
-          (lambda () (setq indent-tabs-mode t)))
+          (lambda () (setq indent-tabs-mode t))))
 
-(setq doom-modeline-height 25)
-(setq doom-modeline-icon t)
-(setq doom-modeline-modal-icon nil)
-(setq doom-modeline-major-mode-icon t)
-(setq doom-modeline-enable-word-count t)
+(map! :leader "i d" #'indent-region)
 
-(map! :leader "z" #'open-line)
+(after! doom-modeline-core
+  (setq doom-modeline-height 25
+        doom-modeline-icon t
+        doom-modeline-modal-icon nil
+        doom-modeline-major-mode-icon t
+        doom-modeline-enable-word-count t))
 
 (defhydra doom-window-resize (:hint nil)
-        "
+  "
                 _k_ increase height
         _h_ decrease width    _l_ increase width
                 _j_ decrease height
         "
-        ("h" evil-window-increase-width)
-        ("j" evil-window-increase-height)
-        ("k" evil-window-decrease-height)
-        ("l" evil-window-decrease-width)
-        ("q" nil))
+  ("h" evil-window-increase-width)
+  ("j" evil-window-increase-height)
+  ("k" evil-window-decrease-height)
+  ("l" evil-window-decrease-width)
+  ("q" nil))
 
 (map!
  :leader
  :desc "Resize windows"
- "r r" #'doom-window-resize/body
- )
+ "r r" #'doom-window-resize/body)
 
-(setq org-directory "~/documents/org/")
-(setq org-agenda-files '("~/documents/org/agenda/"))
-(setq org-log-done 'time)
+(after! org
+  (setq org-directory "~/documents/org/"
+        org-agenda-files '("~/documents/org/agenda/")
+        org-log-done 'time
+        tab-width 8)
 
-(setq org-hide-emphasis-markers nil)
-(setq org-ellipsis "⤵")
+(setq org-startup-with-inline-images t
+      org-image-actual-width 512)
 
-(use-package! org-auto-tangle
-  :defer t
-  :hook (org-mode . org-auto-tangle-mode)
-  :config
+(map! :leader "t o" #'org-table-toggle-column-width))
+
+(add-hook 'org-mode 'org-auto-tangle-mode)
+(after! org-auto-tangle
   (setq org-auto-tangle-default t))
 
-(setq org-startup-with-inline-images t)
-(setq org-image-actual-width 512)
+(after! plant-uml-mode
+  (setq org-plantuml-exec-mode 'plantuml
+        org-plantuml-executable-path "/usr/bin/plantuml"))
 
 (with-eval-after-load 'ox-latex
-(add-to-list 'org-latex-classes
-             '("org-plain-latex"
-               "\\documentclass{article}
-           [NO-DEFAULT-PACKAGES]
-           [PACKAGES]
-           [EXTRA]"
-               ("\\section{%s}" . "\\section*{%s}")
-               ("\\subsection{%s}" . "\\subsection*{%s}")
-               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-               ("\\paragraph{%s}" . "\\paragraph*{%s}")
-               ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+  (add-to-list 'org-latex-classes
+               '("org-plain-latex"
+                 "\\documentclass{article}
+                  [NO-DEFAULT-PACKAGES]
+                  [PACKAGES]
+                  [EXTRA]"
+                 ("\\section{%s}" . "\\section*{%s}")
+                 ("\\subsection{%s}" . "\\subsection*{%s}")
+                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
 
-(defun personal/org-present-start ()
-  (setq writeroom-width 30)
-  (writeroom-mode 1)
-  (display-line-numbers-mode 0)
-  (doom-big-font-mode 1))
+(after! eww
+  (setq browse-url-browser-function 'eww-browse-url)
+  (add-hook 'eww-mode-hook 'writeroom-mode))
 
-(defun personal/org-present-end ()
-  ;; Stop centering the document
-  (setq writeroom-width 100)
-  (writeroom-mode 0)
-  (doom-modeline-mode 1)
-  (visual-fill-column-mode 0)
-  (display-line-numbers-mode 1)
-  (doom-big-font-mode 0))
-
-(defun personal/org-present-prepare-slide (buffer-name heading)
-  ;; Show only top-level headlines
-  (org-overview)
-
-  ;; Unfold the current entry
-  (org-fold-show-entry)
-
-  ;; Show only direct subheadings of the slide but don't expand them
-  (org-fold-show-children))
-
-(add-hook 'org-present-mode-hook 'personal/org-present-start)
-(add-hook 'org-present-mode-quit-hook 'personal/org-present-end)
-(add-hook 'org-present-after-navigate-functions 'personal/org-present-prepare-slide)
-
-(map! :leader "t p" #'org-present)
-
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((plantuml . t))) ; this line activates plantuml
-
-(setq org-plantuml-exec-mode 'plantuml)
-(setq org-plantuml-executable-path "/usr/bin/plantuml")
-
-(map! :leader "t o" #'org-table-toggle-column-width)
-
-(setq browse-url-browser-function 'eww-browse-url)
-
-(add-hook 'eww-mode-hook 'writeroom-mode)
-
-(setq elfeed-curl-max-connections 32)
+(map! :leader "e f" #'elfeed)
 (after! elfeed
-  (setq elfeed-search-filter "@3-months-ago "))
+  (setq elfeed-curl-max-connections 32
+        elfeed-search-filter "@1-week-ago ")
+
+(map! :leader "e u" #'elfeed-update
+      :leader "e t" #'elfeed-tube-mpv)
 
 (defun personal/elfeed-reload ()
   (interactive)
@@ -124,7 +90,7 @@
   (elfeed-db-unload)
   (let ((default-directory "~/.config/emacs/.local/elfeed/"))
     (shell-command "rm -r db"))
-  (elfeed-update))
+  (elfeed-update)))
 
 (defvar ap/elfeed-update-complete-hook nil
   "Functions called with no arguments when `elfeed-update' is finished.")
@@ -177,51 +143,50 @@
 
 (add-hook 'elfeed-update-hooks #'ap/elfeed-update-counter-dec)
 
-(setq elfeed-goodies/entry-pane-size 0.5)
+(after! elfeed-goodies
+  (setq elfeed-goodies/entry-pane-size 0.5))
 
-(setq rmh-elfeed-org-files (list "~/documents/org/elfeed/elfeed.org"))
+(after! elfeed-org
+  (setq rmh-elfeed-org-files (list "~/documents/org/elfeed/elfeed.org")))
 
-(require 'elfeed-tube)
-(elfeed-tube-setup)
-(setq mpv-executable "mpv")
+(after! elfeed-tube
+  (elfeed-tube-setup)
+  (setq mpv-executable "mpv"))
 
-(map! :leader "e f" #'elfeed)
-(map! :leader "e u" #'elfeed-update)
-(map! :leader "e t" #'elfeed-tube-mpv)
-
-(dired-launch-enable)
-
-(evil-define-key 'normal dired-mode-map
-  (kbd "M-RET") 'dired-display-file
-  (kbd "RET") 'dired-launch-with-prompt-command
-  (kbd "h") 'dired-up-directory
-  (kbd "l") 'dired-find-alternate-file
-  (kbd "m") 'dired-mark
-  (kbd "t") 'dired-toggle-marks
-  (kbd "u") 'dired-unmark
-  (kbd "C") 'dired-do-copy
-  (kbd "D") 'dired-do-delete
-  (kbd "J") 'dired-goto-file
-  (kbd "M") 'dired-do-chmod
-  (kbd "O") 'dired-do-chown
-  (kbd "P") 'dired-do-print
-  (kbd "R") 'dired-do-rename
-  (kbd "T") 'dired-do-touch
-  (kbd "Y") 'dired-copy-filenamecopy-filename-as-kill ; copies filename to kill ring.
-  (kbd "Z") 'dired-do-compress
-  (kbd "+") 'dired-create-directory
-  (kbd "-") 'dired-do-kill-lines
-  (kbd "% l") 'dired-downcase
-  (kbd "% m") 'dired-mark-files-regexp
-  (kbd "% u") 'dired-upcase
-  (kbd "* %") 'dired-mark-files-regexp
-  (kbd "* .") 'dired-mark-extension
-  (kbd "* /") 'dired-mark-directories
-  (kbd "; d") 'epa-dired-do-decrypt
-  (kbd "; e") 'epa-dired-do-encrypt)
+(after! dired
+  (evil-define-key 'normal dired-mode-map
+    (kbd "M-RET") 'dired-display-file
+    (kbd "RET") 'dired-launch-with-prompt-command
+    (kbd "h") 'dired-up-directory
+    (kbd "l") 'dired-find-alternate-file
+    (kbd "m") 'dired-mark
+    (kbd "t") 'dired-toggle-marks
+    (kbd "u") 'dired-unmark
+    (kbd "C") 'dired-do-copy
+    (kbd "D") 'dired-do-delete
+    (kbd "J") 'dired-goto-file
+    (kbd "M") 'dired-do-chmod
+    (kbd "O") 'dired-do-chown
+    (kbd "P") 'dired-do-print
+    (kbd "R") 'dired-do-rename
+    (kbd "T") 'dired-do-touch
+    (kbd "Y") 'dired-copy-filenamecopy-filename-as-kill ; copies filename to kill ring.
+    (kbd "Z") 'dired-do-compress
+    (kbd "+") 'dired-create-directory
+    (kbd "-") 'dired-do-kill-lines
+    (kbd "% l") 'dired-downcase
+    (kbd "% m") 'dired-mark-files-regexp
+    (kbd "% u") 'dired-upcase
+    (kbd "* %") 'dired-mark-files-regexp
+    (kbd "* .") 'dired-mark-extension
+    (kbd "* /") 'dired-mark-directories
+    (kbd "; d") 'epa-dired-do-decrypt
+    (kbd "; e") 'epa-dired-do-encrypt)
 
 (setq delete-by-moving-to-trash t
       trash-directory "~/.local/share/trash/files/")
+
+(dired-launch-enable))
 
 (setq avy-all-windows 't)
 
@@ -231,32 +196,36 @@
 (map! :leader "t m" #'minimap-mode)
 
 (defun personal/playlist-mpv ()
-    "Play the media is current directory as a playlist using MPV."
-    (interactive)
-    (vterm)
-    (vterm--goto-line -1)
-    (vterm-send-string "mpv .")
-    (vterm-send-return))
+  "Play the media is current directory as a playlist using MPV."
+  (interactive)
+  (vterm)
+  (vterm--goto-line -1)
+  (vterm-send-string "mpv .")
+  (vterm-send-return))
 
 (map! :leader "p l" #'personal/playlist-mpv)
 
-(add-hook 'speed-type-mode-hook 'writeroom-mode)
-(map! :leader "d d" #'dap-debug)
-(map! :leader "d c" #'dap-disconnect)
-(map! :leader "d r" #'dap-debug-restart)
+(after! speed-type
+  (add-hook 'speed-type-mode-hook 'writeroom-mode))
 
-(map! :leader "d n" #'dap-next)
-(map! :leader "d i" #'dap-step-in)
-(map! :leader "d o" #'dap-step-out)
+(after! dap-mode
+  (setq dap-python-debugger 'debugpy)
 
-(map! :leader "d p" #'dap-breakpoint-toggle)
+(map! :leader "d d" #'dap-debug
+      :leader "d c" #'dap-disconnect
+      :leader "d r" #'dap-debug-restart
+      :leader "d n" #'dap-next
+      :leader "d i" #'dap-step-in
+      :leader "d o" #'dap-step-out
+      :leader "d p" #'dap-breakpoint-toggle
+      :leader "d u s" #'dap-ui-sessions
+      :leader "d u p" #'dap-ui-breakpoints)
 
-(map! :leader "d u s" #'dap-ui-sessions)
-(map! :leader "d u p" #'dap-ui-breakpoints)
-
-(setq read-process-output-max (* 1024 1024)) ;; 1mb
-(setq lsp-idle-delay 0.500)
-(setq lsp-log-io nil) ; if set to true can cause a performance hit
+(setq read-process-output-max (* 1024 1024) ; 1mb
+      lsp-idle-delay 0.500
+      lsp-log-io nil))                      ; if set to true can cause a performance hit
 
 (defalias 'elfeed-youtube
-   (kmacro "0 / c h a n n e l <return> c f / f e e d s / v i d e o s . x m l ? c h a n n e l _ i d - <backspace> = <escape> 0 w i [ <escape> A ] [ <escape>"))
+  (kmacro "0 / c h a n n e l <return> c f / f e e d s / v i d e o s . x m l ? c h a n n e l _ i d - <backspace> = <escape> 0 w i [ <escape> A ] [ <escape>"))
+
+(map! :leader "m a c y t" #'elfeed-youtube)
