@@ -58,5 +58,5 @@
 (package! org-present :pin "4ec04e1b77dea76d7c30066ccf3200d2e0b7bee9")
 (package! plantuml-mode :pin "ea45a13707abd2a70df183f1aec6447197fc9ccc")
 (package! speed-type :pin "b982ee6081a11837760eeaed73c4f413eefb07b1")
-(package! catppuccin-theme :pin "177ecee1e5b8bbd05053cba5c93ebfae3b8fee8c")
+(package! catppuccin-theme :pin "0b4a7e43b80aedcb7a8088ce0ab4928bd34d5f95")
 (package! org-auto-tangle :pin "817eabf902e759e96782bdc54d2dab36c4a2c5ab")
