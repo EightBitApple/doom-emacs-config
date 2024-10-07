@@ -58,7 +58,6 @@
 (package! org-present :pin "4ec04e1b77dea76d7c30066ccf3200d2e0b7bee9")
 (package! plantuml-mode :pin "ea45a13707abd2a70df183f1aec6447197fc9ccc")
 (package! speed-type :pin "b982ee6081a11837760eeaed73c4f413eefb07b1")
-(package! catppuccin-theme :pin "57c77157d970493b6f5a36e4a87d0dae4d3ba7b2")
 (package! org-auto-tangle :pin "817eabf902e759e96782bdc54d2dab36c4a2c5ab")
 (package! yeetube :pin "dc33d92a9c6765b7859551d19d1e910b81484726")
 (package! gnosis :pin "40f63788afdb74fa71177abd882e852177829881")

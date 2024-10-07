@@ -1,4 +1,4 @@
-(setq doom-theme 'catppuccin
+(setq doom-theme 'doom-gruvbox
       doom-font (font-spec :family "FiraCode Nerd Font" :size 12 :weight 'medium))
 
 (set-frame-parameter nil 'alpha-background 95)
