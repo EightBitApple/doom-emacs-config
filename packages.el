@@ -60,4 +60,4 @@
 (package! speed-type :pin "b982ee6081a11837760eeaed73c4f413eefb07b1")
 (package! org-auto-tangle :pin "817eabf902e759e96782bdc54d2dab36c4a2c5ab")
 (package! yeetube :pin "d3437030bcd8d64b2e5a3bc579e2f2f0b4581d1f")
-(package! gnosis :pin "f4050f4f27e1ac0eab25168b0849017afd04aa31")
+(package! gnosis :pin "eefd0abb3cb7ca8a09c249686ff67555724624da")
