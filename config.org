@@ -300,9 +300,7 @@ Adapted from https://www.reddit.com/r/emacs/comments/op4fcm/send_command_to_vter
   (vterm--goto-line -1)
   (vterm-send-string "mpv .")
   (vterm-send-return))
-#+end_src
 
-#+begin_src elisp
 (map! :leader "p l" #'personal/playlist-mpv)
 #+end_src
 
