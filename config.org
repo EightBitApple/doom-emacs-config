@@ -319,30 +319,27 @@ Adapted from https://www.reddit.com/r/emacs/comments/op4fcm/send_command_to_vter
   (kill-new (yeetube-get-url))
   (message "URL copied."))
 #+end_src
+
 ** Debug Adaptor Protocol (DAP)
 *** Configuration
 #+begin_src elisp
 (after! dap-mode
   (setq dap-python-debugger 'debugpy)
-#+end_src
+  (require 'dap-java)
 
-*** Key Bindings
-#+begin_src elisp
-(map! :leader "d d" #'dap-debug
-      :leader "d c" #'dap-disconnect
-      :leader "d r" #'dap-debug-restart
-      :leader "d n" #'dap-next
-      :leader "d i" #'dap-step-in
-      :leader "d o" #'dap-step-out
-      :leader "d p" #'dap-breakpoint-toggle
-      :leader "d u s" #'dap-ui-sessions
-      :leader "d u p" #'dap-ui-breakpoints)
-#+end_src
-*** Performance
-#+begin_src elisp
-(setq read-process-output-max (* 1024 1024) ; 1mb
-      lsp-idle-delay 0.500
-      lsp-log-io nil))                      ; if set to true can cause a performance hit
+  (map! :leader "d d" #'dap-debug
+        :leader "d c" #'dap-disconnect
+        :leader "d r" #'dap-debug-restart
+        :leader "d n" #'dap-next
+        :leader "d i" #'dap-step-in
+        :leader "d o" #'dap-step-out
+        :leader "d p" #'dap-breakpoint-toggle
+        :leader "d u s" #'dap-ui-sessions
+        :leader "d u p" #'dap-ui-breakpoints)
+
+  (setq read-process-output-max (* 1024 1024) ; 1mb
+        lsp-idle-delay 0.500
+        lsp-log-io nil))                      ; if set to true can cause a performance hit
 #+end_src
 
 ** Macros
