@@ -205,14 +205,13 @@ Clear the search filter before updating entries. This mitigates long thread bloc
 (add-hook 'elfeed-update-hooks #'ap/elfeed-update-counter-dec)
 #+end_src
 
-*** Packages
-**** Elfeed Goodies
+*** Elfeed Goodies
 #+begin_src elisp
 (after! elfeed-goodies
   (setq elfeed-goodies/entry-pane-size 0.5))
 #+end_src
 
-**** Elfeed Org
+*** Elfeed Org
 Use Org Mode to organise feeds rather then listing them in this configuration.
 Elfeed-Org also has the ability to import and export to OPML. Useful for other readers.
 #+begin_src elisp
@@ -220,7 +219,7 @@ Elfeed-Org also has the ability to import and export to OPML. Useful for other r
   (setq rmh-elfeed-org-files (list "~/documents/org/elfeed/elfeed.org")))
 #+end_src
 
-**** Elfeed Tube
+*** Elfeed Tube
 YouTube integration with Elfeed.
 Provides thumbnail, duration, bookmarking and transcript.
 #+begin_src elisp
