@@ -228,12 +228,10 @@ Provides thumbnail, duration, bookmarking and transcript.
   (setq mpv-executable "mpv"))
 #+end_src
 
-
 ** Dired
 *** Evil-Mode Mappings
-[[https://gitlab.com/dwt1/dotfiles/-/blob/master/.config/doom/config.org?ref_type=heads#dired][Custom mappings from DistoTube]] to make Dired integrate more with evil mode.
-This makes Dired more like vim-motion-based TUI file managers like [[https://github.com/jarun/nnn][NNN]] and [[https://github.com/gokcehan/lf][LF]].
-
+Uses [[https://gitlab.com/dwt1/dotfiles/-/blob/master/.config/doom/config.org?ref_type=heads#dired][Custom mappings from DistoTube]] to make Dired integrate more with evil mode.
+This makes Dired more like vim-motion-based file managers like [[https://github.com/jarun/nnn][NNN]] and [[https://github.com/gokcehan/lf][LF]].
 #+begin_src elisp
 (after! dired
   (evil-define-key 'normal dired-mode-map
@@ -264,18 +262,12 @@ This makes Dired more like vim-motion-based TUI file managers like [[https://git
     (kbd "* /") 'dired-mark-directories
     (kbd "; d") 'epa-dired-do-decrypt
     (kbd "; e") 'epa-dired-do-encrypt)
-#+end_src
 
-*** Trash Bin
-Trash directory to safeguard accidental deletions.
-#+begin_src elisp
-(setq delete-by-moving-to-trash t
-      trash-directory "~/.local/share/trash/files/")
-#+end_src
+    ;; trash bin
+    (setq delete-by-moving-to-trash t
+          trash-directory "~/.local/share/trash/files/")
 
-*** Dired Launch
-#+begin_src elisp
-(dired-launch-enable))
+    (dired-launch-enable))
 #+end_src
 
 ** Avy
