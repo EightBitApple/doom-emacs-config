@@ -203,7 +203,7 @@ Clear the search filter before updating entries. This mitigates long thread bloc
     (setq ap/elfeed-updates-in-progress 0)))
 
 (add-hook 'elfeed-update-hooks #'ap/elfeed-update-counter-dec)
- #+end_src
+#+end_src
 
 *** Packages
 **** Elfeed Goodies
