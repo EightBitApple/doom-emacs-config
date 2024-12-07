@@ -123,13 +123,12 @@ Emacs' minimal web browser.
 #+end_src
 
 ** Elfeed
-*** Fetching
 #+begin_src elisp
 (map! :leader "e f" #'elfeed)
+
 (after! elfeed
   (setq elfeed-curl-max-connections 32
         elfeed-search-filter "@1-week-ago ")
-#+end_src
 
 *** Bindings
 #+begin_src elisp
