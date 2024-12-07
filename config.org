@@ -134,10 +134,9 @@ Emacs' minimal web browser.
 (map! :leader "e u" #'elfeed-update
       :leader "e t" #'elfeed-tube-mpv)
 
-*** Reloading
-A function to detach and delete the Elfeed database, then generate a new one.
-Invoke upon feed deletion to avoid headaches.
-#+begin_src elisp
+;; Database Reloading:
+;; A function to detach and delete the Elfeed database, then generate a new one.
+;; Invoke upon feed deletion to avoid headaches.
 (defun personal/elfeed-reload ()
   (interactive)
   "Unload, Delete and generate a new Elfeed database."
