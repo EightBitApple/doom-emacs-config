@@ -49,20 +49,15 @@
 
 * Functionality
 ** Org Mode
-*** Basics
 #+begin_src elisp
 (after! org
   (setq org-directory "~/documents/org/"
-        org-agenda-files '("~/documents/org/agenda/")
         org-log-done 'time
-        tab-width 8)
-#+end_src
+        tab-width 8
+        ;; images
+        org-startup-with-inline-images t
+        org-image-actual-width 512)
 
-*** Images
-#+begin_src elisp
-(setq org-startup-with-inline-images t
-      org-image-actual-width 512)
-#+end_src
 
 *** Bindings
 #+begin_src elisp
