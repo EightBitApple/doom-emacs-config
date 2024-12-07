@@ -117,8 +117,8 @@ Easy resizing of window splits using hydra mode.
 ** Emacs Web Wowser
 Emacs' minimal web browser.
 #+begin_src elisp
+(setq browse-url-browser-function 'eww-browse-url)
 (after! eww
-  (setq browse-url-browser-function 'eww-browse-url)
   (add-hook 'eww-mode-hook 'writeroom-mode))
 #+end_src
 
