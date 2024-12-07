@@ -61,6 +61,19 @@
   ;; bindings
   (map! :leader "t o" #'org-table-toggle-column-width)
 
+  ;; org export latex
+  (with-eval-after-load 'ox-latex
+  (add-to-list 'org-latex-classes
+          '("org-plain-latex"
+                  "\\documentclass{article}
+                  [NO-DEFAULT-PACKAGES]
+                  [PACKAGES]
+                  [EXTRA]"
+                  ("\\section{%s}" . "\\section*{%s}")
+                  ("\\subsection{%s}" . "\\subsection*{%s}")
+                  ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                  ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                  ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))))
 #+end_src
 
 *** Org-auto-tangle
@@ -80,21 +93,7 @@ The snippet below integrates this with Org Mode.
         org-plantuml-executable-path "/usr/bin/plantuml"))
 #+end_src
 
-*** Org Export
-**** Latex
 #+begin_src elisp
-(with-eval-after-load 'ox-latex
-  (add-to-list 'org-latex-classes
-               '("org-plain-latex"
-                 "\\documentclass{article}
-                  [NO-DEFAULT-PACKAGES]
-                  [PACKAGES]
-                  [EXTRA]"
-                 ("\\section{%s}" . "\\section*{%s}")
-                 ("\\subsection{%s}" . "\\subsection*{%s}")
-                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
-                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
 ** Easy Window Resizing
 Easy resizing of window splits using hydra mode.
 #+begin_src elisp
