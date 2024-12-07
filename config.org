@@ -9,8 +9,8 @@
   - [[#editor][Editor]]
   - [[#doom-modeline][Doom Modeline]]
 - [[#functionality][Functionality]]
-  - [[#editor-1][Editor]]
   - [[#org-mode][Org Mode]]
+  - [[#easy-window-resizing][Easy Window Resizing]]
   - [[#emacs-web-wowser][Emacs Web Wowser]]
   - [[#elfeed][Elfeed]]
   - [[#dired][Dired]]
@@ -19,13 +19,14 @@
   - [[#minimap][Minimap]]
   - [[#vterm][Vterm]]
   - [[#speed-type][Speed Type]]
+  - [[#yeetube][Yeetube]]
   - [[#debug-adaptor-protocol-dap][Debug Adaptor Protocol (DAP)]]
   - [[#macros][Macros]]
 
 * Appearance
 ** Theme
 #+begin_src elisp
-(setq doom-theme 'doom-gruvbox
+(setq doom-theme 'gruber-darker
       doom-font (font-spec :family "FiraCode Nerd Font" :size 12 :weight 'medium))
 
 (set-frame-parameter nil 'alpha-background 95)
@@ -38,38 +39,62 @@
       tab-width 4)
 #+end_src
 
-*** Smart Tabs
-Package to indent with tabs and align with spaces.
-https://www.emacswiki.org/emacs/SmartTabs
-#+begin_src elisp
-(after! smart-tabs-mode
-  (smart-tabs-insinuate 'c 'c++ 'javascript 'java 'python)
-#+end_src
-
-Disable tabs globally (spaces only) and reactivate them for modes with smart tabs handling.
-#+begin_src elisp
-(setq-default indent-tabs-mode nil)
-(add-hook 'c-mode-common-hook
-          (lambda () (setq indent-tabs-mode t))))
-#+end_src
-
-#+begin_src elisp
-(map! :leader "i d" #'indent-region)
-#+end_src
-
 ** Doom Modeline
 #+begin_src elisp
 (after! doom-modeline-core
-  (setq doom-modeline-height 25
-        doom-modeline-icon t
+  (setq doom-modeline-icon t
         doom-modeline-modal-icon nil
         doom-modeline-major-mode-icon t
         doom-modeline-enable-word-count t))
 #+end_src
 
 * Functionality
-** Editor
-*** Easy Window Resizing
+** Org Mode
+#+begin_src elisp
+(after! org
+  (setq org-directory "~/documents/org/"
+        org-log-done 'time
+        tab-width 8
+        ;; images
+        org-startup-with-inline-images t
+        org-image-actual-width 512)
+
+  ;; bindings
+  (map! :leader "t o" #'org-table-toggle-column-width)
+
+  ;; org export latex
+  (with-eval-after-load 'ox-latex
+  (add-to-list 'org-latex-classes
+          '("org-plain-latex"
+                  "\\documentclass{article}
+                  [NO-DEFAULT-PACKAGES]
+                  [PACKAGES]
+                  [EXTRA]"
+                  ("\\section{%s}" . "\\section*{%s}")
+                  ("\\subsection{%s}" . "\\subsection*{%s}")
+                  ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                  ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                  ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))))
+#+end_src
+
+*** Org-auto-tangle
+Package to automatically tangle code blocks on buffer write.
+#+begin_src elisp
+(add-hook 'org-mode 'org-auto-tangle-mode)
+(after! org-auto-tangle
+  (setq org-auto-tangle-default t))
+#+end_src
+
+*** PlantUML
+A Java component used for making Unified Modelling Language (UML) diagrams via an easy to use language.
+The snippet below integrates this with Org Mode.
+#+begin_src elisp
+(after! plant-uml-mode
+  (setq org-plantuml-exec-mode 'plantuml
+        org-plantuml-executable-path "/usr/bin/plantuml"))
+#+end_src
+
+** Easy Window Resizing
 Easy resizing of window splits using hydra mode.
 #+begin_src elisp
 (defhydra doom-window-resize (:hint nil)
@@ -90,88 +115,29 @@ Easy resizing of window splits using hydra mode.
  "r r" #'doom-window-resize/body)
 #+end_src
 
-** Org Mode
-*** Basics
-#+begin_src elisp
-(after! org
-  (setq org-directory "~/documents/org/"
-        org-agenda-files '("~/documents/org/agenda/")
-        org-log-done 'time
-        tab-width 8)
-#+end_src
-
-*** Images
-#+begin_src elisp
-(setq org-startup-with-inline-images t
-      org-image-actual-width 512)
-#+end_src
-
-*** Bindings
-#+begin_src elisp
-(map! :leader "t o" #'org-table-toggle-column-width))
-#+end_src
-
-*** Org-auto-tangle
-Package to automatically tangle code blocks on buffer write.
-#+begin_src elisp
-(add-hook 'org-mode 'org-auto-tangle-mode)
-(after! org-auto-tangle
-  (setq org-auto-tangle-default t))
-#+end_src
-
-*** PlantUML
-A Java component used for making Unified Modelling Language (UML) diagrams via an easy to use language.
-The snippet below integrates this with Org Mode.
-#+begin_src elisp
-(after! plant-uml-mode
-  (setq org-plantuml-exec-mode 'plantuml
-        org-plantuml-executable-path "/usr/bin/plantuml"))
-#+end_src
-
-*** Org Export
-**** Latex
-#+begin_src elisp
-(with-eval-after-load 'ox-latex
-  (add-to-list 'org-latex-classes
-               '("org-plain-latex"
-                 "\\documentclass{article}
-                  [NO-DEFAULT-PACKAGES]
-                  [PACKAGES]
-                  [EXTRA]"
-                 ("\\section{%s}" . "\\section*{%s}")
-                 ("\\subsection{%s}" . "\\subsection*{%s}")
-                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
-                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
-#+end_src
-
 ** Emacs Web Wowser
 Emacs' minimal web browser.
 #+begin_src elisp
+(setq browse-url-browser-function 'eww-browse-url)
 (after! eww
-  (setq browse-url-browser-function 'eww-browse-url)
   (add-hook 'eww-mode-hook 'writeroom-mode))
 #+end_src
 
 ** Elfeed
-*** Fetching
 #+begin_src elisp
 (map! :leader "e f" #'elfeed)
+
 (after! elfeed
   (setq elfeed-curl-max-connections 32
         elfeed-search-filter "@1-week-ago ")
-#+end_src
 
-*** Bindings
-#+begin_src elisp
+;; bindings
 (map! :leader "e u" #'elfeed-update
       :leader "e t" #'elfeed-tube-mpv)
-#+end_src
 
-*** Reloading
-A function to detach and delete the Elfeed database, then generate a new one.
-Invoke upon feed deletion to avoid headaches.
-#+begin_src elisp
+;; Database Reloading:
+;; A function to detach and delete the Elfeed database, then generate a new one.
+;; Invoke upon feed deletion to avoid headaches.
 (defun personal/elfeed-reload ()
   (interactive)
   "Unload, Delete and generate a new Elfeed database."
@@ -238,16 +204,15 @@ Clear the search filter before updating entries. This mitigates long thread bloc
     (setq ap/elfeed-updates-in-progress 0)))
 
 (add-hook 'elfeed-update-hooks #'ap/elfeed-update-counter-dec)
- #+end_src
+#+end_src
 
-*** Packages
-**** Elfeed Goodies
+*** Elfeed Goodies
 #+begin_src elisp
 (after! elfeed-goodies
   (setq elfeed-goodies/entry-pane-size 0.5))
 #+end_src
 
-**** Elfeed Org
+*** Elfeed Org
 Use Org Mode to organise feeds rather then listing them in this configuration.
 Elfeed-Org also has the ability to import and export to OPML. Useful for other readers.
 #+begin_src elisp
@@ -255,7 +220,7 @@ Elfeed-Org also has the ability to import and export to OPML. Useful for other r
   (setq rmh-elfeed-org-files (list "~/documents/org/elfeed/elfeed.org")))
 #+end_src
 
-**** Elfeed Tube
+*** Elfeed Tube
 YouTube integration with Elfeed.
 Provides thumbnail, duration, bookmarking and transcript.
 #+begin_src elisp
@@ -264,12 +229,10 @@ Provides thumbnail, duration, bookmarking and transcript.
   (setq mpv-executable "mpv"))
 #+end_src
 
-
 ** Dired
 *** Evil-Mode Mappings
-[[https://gitlab.com/dwt1/dotfiles/-/blob/master/.config/doom/config.org?ref_type=heads#dired][Custom mappings from DistoTube]] to make Dired integrate more with evil mode.
-This makes Dired more like vim-motion-based TUI file managers like [[https://github.com/jarun/nnn][NNN]] and [[https://github.com/gokcehan/lf][LF]].
-
+Uses [[https://gitlab.com/dwt1/dotfiles/-/blob/master/.config/doom/config.org?ref_type=heads#dired][Custom mappings from DistoTube]] to make Dired integrate more with evil mode.
+This makes Dired more like vim-motion-based file managers like [[https://github.com/jarun/nnn][NNN]] and [[https://github.com/gokcehan/lf][LF]].
 #+begin_src elisp
 (after! dired
   (evil-define-key 'normal dired-mode-map
@@ -300,18 +263,12 @@ This makes Dired more like vim-motion-based TUI file managers like [[https://git
     (kbd "* /") 'dired-mark-directories
     (kbd "; d") 'epa-dired-do-decrypt
     (kbd "; e") 'epa-dired-do-encrypt)
-#+end_src
 
-*** Trash Bin
-Trash directory to safeguard accidental deletions.
-#+begin_src elisp
-(setq delete-by-moving-to-trash t
-      trash-directory "~/.local/share/trash/files/")
-#+end_src
+    ;; trash bin
+    (setq delete-by-moving-to-trash t
+          trash-directory "~/.local/share/trash/files/")
 
-*** Dired Launch
-#+begin_src elisp
-(dired-launch-enable))
+    (dired-launch-enable))
 #+end_src
 
 ** Avy
@@ -344,9 +301,7 @@ Adapted from https://www.reddit.com/r/emacs/comments/op4fcm/send_command_to_vter
   (vterm--goto-line -1)
   (vterm-send-string "mpv .")
   (vterm-send-return))
-#+end_src
 
-#+begin_src elisp
 (map! :leader "p l" #'personal/playlist-mpv)
 #+end_src
 
@@ -357,39 +312,40 @@ Adapted from https://www.reddit.com/r/emacs/comments/op4fcm/send_command_to_vter
   (add-hook 'speed-type-mode-hook 'writeroom-mode))
 #+end_src
 
+** Yeetube
+#+begin_src elisp
+(defun personal/yeetube-copy-url ()
+  (interactive)
+  (kill-new (yeetube-get-url))
+  (message "URL copied."))
+#+end_src
+
 ** Debug Adaptor Protocol (DAP)
 *** Configuration
 #+begin_src elisp
 (after! dap-mode
   (setq dap-python-debugger 'debugpy)
-#+end_src
+  (require 'dap-java)
 
-*** Key Bindings
-#+begin_src elisp
-(map! :leader "d d" #'dap-debug
-      :leader "d c" #'dap-disconnect
-      :leader "d r" #'dap-debug-restart
-      :leader "d n" #'dap-next
-      :leader "d i" #'dap-step-in
-      :leader "d o" #'dap-step-out
-      :leader "d p" #'dap-breakpoint-toggle
-      :leader "d u s" #'dap-ui-sessions
-      :leader "d u p" #'dap-ui-breakpoints)
-#+end_src
-*** Performance
-#+begin_src elisp
-(setq read-process-output-max (* 1024 1024) ; 1mb
-      lsp-idle-delay 0.500
-      lsp-log-io nil))                      ; if set to true can cause a performance hit
+  (map! :leader "d d" #'dap-debug
+        :leader "d c" #'dap-disconnect
+        :leader "d r" #'dap-debug-restart
+        :leader "d n" #'dap-next
+        :leader "d i" #'dap-step-in
+        :leader "d o" #'dap-step-out
+        :leader "d p" #'dap-breakpoint-toggle
+        :leader "d u s" #'dap-ui-sessions
+        :leader "d u p" #'dap-ui-breakpoints)
+
+  (setq read-process-output-max (* 1024 1024) ; 1mb
+        lsp-idle-delay 0.500
+        lsp-log-io nil))                      ; if set to true can cause a performance hit
 #+end_src
 
 ** Macros
 #+begin_src elisp
 (defalias 'elfeed-youtube
   (kmacro "0 / c h a n n e l <return> c f / f e e d s / v i d e o s . x m l ? c h a n n e l _ i d - <backspace> = <escape> 0 w i [ <escape> A ] [ <escape>"))
-#+end_src
 
-*** Bindings
-#+begin_src elisp
 (map! :leader "m a c y t" #'elfeed-youtube)
 #+end_src
