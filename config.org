@@ -130,11 +130,9 @@ Emacs' minimal web browser.
   (setq elfeed-curl-max-connections 32
         elfeed-search-filter "@1-week-ago ")
 
-*** Bindings
-#+begin_src elisp
+;; bindings
 (map! :leader "e u" #'elfeed-update
       :leader "e t" #'elfeed-tube-mpv)
-#+end_src
 
 *** Reloading
 A function to detach and delete the Elfeed database, then generate a new one.
