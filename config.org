@@ -38,12 +38,10 @@
       tab-width 4)
 #+end_src
 
-
 ** Doom Modeline
 #+begin_src elisp
 (after! doom-modeline-core
-  (setq doom-modeline-height 25
-        doom-modeline-icon t
+  (setq doom-modeline-icon t
         doom-modeline-modal-icon nil
         doom-modeline-major-mode-icon t
         doom-modeline-enable-word-count t))
