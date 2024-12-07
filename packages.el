@@ -61,3 +61,4 @@
 (package! org-auto-tangle :pin "817eabf902e759e96782bdc54d2dab36c4a2c5ab")
 (package! yeetube :pin "d3437030bcd8d64b2e5a3bc579e2f2f0b4581d1f")
 (package! gnosis :pin "eefd0abb3cb7ca8a09c249686ff67555724624da")
+(package! gruber-darker-theme :pin "2e9f99c41fe8ef0557e9ea0f3b94ef50c68b5557")
