@@ -346,9 +346,6 @@ Adapted from https://www.reddit.com/r/emacs/comments/op4fcm/send_command_to_vter
 #+begin_src elisp
 (defalias 'elfeed-youtube
   (kmacro "0 / c h a n n e l <return> c f / f e e d s / v i d e o s . x m l ? c h a n n e l _ i d - <backspace> = <escape> 0 w i [ <escape> A ] [ <escape>"))
-#+end_src
 
-*** Bindings
-#+begin_src elisp
 (map! :leader "m a c y t" #'elfeed-youtube)
 #+end_src
