@@ -38,24 +38,6 @@
       tab-width 4)
 #+end_src
 
-*** Smart Tabs
-Package to indent with tabs and align with spaces.
-https://www.emacswiki.org/emacs/SmartTabs
-#+begin_src elisp
-(after! smart-tabs-mode
-  (smart-tabs-insinuate 'c 'c++ 'javascript 'java 'python)
-#+end_src
-
-Disable tabs globally (spaces only) and reactivate them for modes with smart tabs handling.
-#+begin_src elisp
-(setq-default indent-tabs-mode nil)
-(add-hook 'c-mode-common-hook
-          (lambda () (setq indent-tabs-mode t))))
-#+end_src
-
-#+begin_src elisp
-(map! :leader "i d" #'indent-region)
-#+end_src
 
 ** Doom Modeline
 #+begin_src elisp

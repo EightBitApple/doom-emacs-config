@@ -54,7 +54,6 @@
 (package! elfeed-tube-mpv :pin "0c3fbc21259e1fa794f3179a53b410ba610231f2")
 (package! dired-launch :pin "31066f860735325a284c12a2f79c51a640d13556")
 (package! org-auto-tangle :pin "817eabf902e759e96782bdc54d2dab36c4a2c5ab")
-(package! smart-tabs-mode :pin "1044c17e42479de943e69cdeb85e4d05ad9cca8c")
 (package! org-present :pin "4ec04e1b77dea76d7c30066ccf3200d2e0b7bee9")
 (package! plantuml-mode :pin "ea45a13707abd2a70df183f1aec6447197fc9ccc")
 (package! speed-type :pin "b982ee6081a11837760eeaed73c4f413eefb07b1")
