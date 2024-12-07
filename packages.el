@@ -62,3 +62,14 @@
 (package! yeetube :pin "d3437030bcd8d64b2e5a3bc579e2f2f0b4581d1f")
 (package! gnosis :pin "eefd0abb3cb7ca8a09c249686ff67555724624da")
 (package! gruber-darker-theme :pin "2e9f99c41fe8ef0557e9ea0f3b94ef50c68b5557")
+
+(when (package! lsp-bridge
+        :recipe (:host github
+                 :repo "manateelazycat/lsp-bridge"
+                 :branch "master"
+                 :files ("*.el" "*.py" "acm" "core" "langserver" "multiserver" "resources")
+                 ;; do not perform byte compilation or native compilation for lsp-bridge
+                 :build (:not compile))
+        :pin "4fb92c97f4dd585bde59939bc53eeaee893c8fbe")
+  (package! markdown-mode :pin "7ca5a25c6193acdbb43a1a44cf20daeaec47e443")
+  (package! yasnippet :pin "fe1f4e0e96ce42d8668920335eb22c3c009dab3e"))
