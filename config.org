@@ -93,7 +93,6 @@ The snippet below integrates this with Org Mode.
         org-plantuml-executable-path "/usr/bin/plantuml"))
 #+end_src
 
-#+begin_src elisp
 ** Easy Window Resizing
 Easy resizing of window splits using hydra mode.
 #+begin_src elisp
