@@ -19,6 +19,7 @@
   - [[#minimap][Minimap]]
   - [[#vterm][Vterm]]
   - [[#speed-type][Speed Type]]
+  - [[#yeetube][Yeetube]]
   - [[#debug-adaptor-protocol-dap][Debug Adaptor Protocol (DAP)]]
   - [[#macros][Macros]]
 
@@ -311,6 +312,13 @@ Adapted from https://www.reddit.com/r/emacs/comments/op4fcm/send_command_to_vter
   (add-hook 'speed-type-mode-hook 'writeroom-mode))
 #+end_src
 
+** Yeetube
+#+begin_src elisp
+(defun personal/yeetube-copy-url ()
+  (interactive)
+  (kill-new (yeetube-get-url))
+  (message "URL copied."))
+#+end_src
 ** Debug Adaptor Protocol (DAP)
 *** Configuration
 #+begin_src elisp
