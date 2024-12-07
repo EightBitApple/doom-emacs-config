@@ -58,10 +58,9 @@
         org-startup-with-inline-images t
         org-image-actual-width 512)
 
+  ;; bindings
+  (map! :leader "t o" #'org-table-toggle-column-width)
 
-*** Bindings
-#+begin_src elisp
-(map! :leader "t o" #'org-table-toggle-column-width))
 #+end_src
 
 *** Org-auto-tangle
