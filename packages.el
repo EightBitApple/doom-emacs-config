@@ -59,7 +59,7 @@
 (package! speed-type :pin "b982ee6081a11837760eeaed73c4f413eefb07b1")
 (package! org-auto-tangle :pin "817eabf902e759e96782bdc54d2dab36c4a2c5ab")
 (package! yeetube :pin "d3437030bcd8d64b2e5a3bc579e2f2f0b4581d1f")
-(package! gnosis :pin "eefd0abb3cb7ca8a09c249686ff67555724624da")
+(package! gnosis :pin "852c3e25eda24471100ea210f7b0ecbb0225136f")
 (package! gruber-darker-theme :pin "2e9f99c41fe8ef0557e9ea0f3b94ef50c68b5557")
 
 (when (package! lsp-bridge
@@ -69,6 +69,6 @@
                  :files ("*.el" "*.py" "acm" "core" "langserver" "multiserver" "resources")
                  ;; do not perform byte compilation or native compilation for lsp-bridge
                  :build (:not compile))
-        :pin "520d253a00d360d7aa47d85a9c4a99ea6702acde")
+        :pin "b73717e6bdd39366ec734c3018578c06f9bc69ad")
   (package! markdown-mode :pin "8692afc12e13431efb0c302baee1de5bbf4a41e4")
   (package! yasnippet :pin "fe1f4e0e96ce42d8668920335eb22c3c009dab3e"))
