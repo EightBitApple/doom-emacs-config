@@ -92,9 +92,12 @@ Package to automatically tangle code blocks on buffer write.
 A Java component used for making Unified Modelling Language (UML) diagrams via an easy to use language.
 The snippet below integrates this with Org Mode.
 #+begin_src elisp
-(after! plant-uml-mode
-  (setq org-plantuml-exec-mode 'plantuml
-        org-plantuml-executable-path "/usr/bin/plantuml"))
+(setq plantuml-default-exec-mode 'executable
+      org-plantuml-exec-mode 'plantuml)
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((plantuml . t))) ; this line activates plantuml
 #+end_src
 
 ** Easy Window Resizing
