@@ -126,7 +126,8 @@ Emacs' minimal web browser.
 #+begin_src elisp
 (setq browse-url-browser-function 'eww-browse-url)
 (after! eww
-  (add-hook 'eww-mode-hook 'writeroom-mode))
+  (add-hook 'eww-mode-hook 'writeroom-mode)
+  (add-hook 'eww-mode-hook 'scroll-lock-mode))
 #+end_src
 
 ** Elfeed
