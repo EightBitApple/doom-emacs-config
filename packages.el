@@ -52,14 +52,13 @@
 (package! elfeed-tube :pin "0c3fbc21259e1fa794f3179a53b410ba610231f2")
 (package! elfeed-goodies :pin "544ef42ead011d960a0ad1c1d34df5d222461a6b")
 (package! elfeed-tube-mpv :pin "0c3fbc21259e1fa794f3179a53b410ba610231f2")
-(package! dired-launch :pin "31066f860735325a284c12a2f79c51a640d13556")
+(package! dired-launch :pin "ba41242f303b59c202a7591b2c68400511170e81")
 (package! org-auto-tangle :pin "817eabf902e759e96782bdc54d2dab36c4a2c5ab")
 (package! org-present :pin "4ec04e1b77dea76d7c30066ccf3200d2e0b7bee9")
 (package! plantuml-mode :pin "ea45a13707abd2a70df183f1aec6447197fc9ccc")
-(package! speed-type :pin "b982ee6081a11837760eeaed73c4f413eefb07b1")
 (package! org-auto-tangle :pin "817eabf902e759e96782bdc54d2dab36c4a2c5ab")
-(package! yeetube :pin "d3437030bcd8d64b2e5a3bc579e2f2f0b4581d1f")
-(package! gnosis :pin "852c3e25eda24471100ea210f7b0ecbb0225136f")
+(package! yeetube :pin "7b1bc7529b58dfe93a284959d5f494d5562adb00")
+(package! gnosis :pin "263075f83498b387161fef3e82b8b6f3619ff77a")
 (package! gruber-darker-theme :pin "2e9f99c41fe8ef0557e9ea0f3b94ef50c68b5557")
 
 (when (package! lsp-bridge
@@ -69,6 +68,6 @@
                  :files ("*.el" "*.py" "acm" "core" "langserver" "multiserver" "resources")
                  ;; do not perform byte compilation or native compilation for lsp-bridge
                  :build (:not compile))
-        :pin "0403c9e9f148cc0eb4526bb2d3912e1de031bca1")
-  (package! markdown-mode :pin "8692afc12e13431efb0c302baee1de5bbf4a41e4")
-  (package! yasnippet :pin "fe1f4e0e96ce42d8668920335eb22c3c009dab3e"))
+        :pin "c87e6ac6d452b3bd94583a5c5edb16f37edadb94")
+  (package! markdown-mode :pin "7659bc470d096e7a53285fa246cbabcb07d66a33")
+  (package! yasnippet :pin "5b315f1753480ebe669b157b8242448b5eafcfea"))
