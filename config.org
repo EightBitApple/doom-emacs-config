@@ -18,6 +18,7 @@
   - [[#ace-window][Ace Window]]
   - [[#minimap][Minimap]]
   - [[#vterm][Vterm]]
+  - [[#pdf-view][PDF View]]
   - [[#yeetube][Yeetube]]
   - [[#debug-adaptor-protocol-dap][Debug Adaptor Protocol (DAP)]]
   - [[#macros][Macros]]
@@ -329,7 +330,10 @@ Adapted from https://www.reddit.com/r/emacs/comments/op4fcm/send_command_to_vter
 (map! :leader "p l" #'personal/playlist-mpv)
 #+end_src
 
+** PDF View
 #+begin_src elisp
+(add-hook 'pdf-view-mode-hook 'pdf-view-themed-minor-mode)
+(add-hook 'pdf-view-mode-hook 'pdf-view-fit-height-to-window)
 #+end_src
 
 ** Yeetube
