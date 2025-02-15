@@ -18,7 +18,6 @@
   - [[#ace-window][Ace Window]]
   - [[#minimap][Minimap]]
   - [[#vterm][Vterm]]
-  - [[#speed-type][Speed Type]]
   - [[#yeetube][Yeetube]]
   - [[#debug-adaptor-protocol-dap][Debug Adaptor Protocol (DAP)]]
   - [[#macros][Macros]]
@@ -330,11 +329,7 @@ Adapted from https://www.reddit.com/r/emacs/comments/op4fcm/send_command_to_vter
 (map! :leader "p l" #'personal/playlist-mpv)
 #+end_src
 
-** Speed Type
-*** Hooks
 #+begin_src elisp
-(after! speed-type
-  (add-hook 'speed-type-mode-hook 'writeroom-mode))
 #+end_src
 
 ** Yeetube
