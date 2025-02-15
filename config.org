@@ -27,10 +27,25 @@
 ** Theme
 #+begin_src elisp
 (setq doom-theme 'gruber-darker
-      doom-font (font-spec :family "FiraCode Nerd Font" :size 12 :weight 'medium))
+      doom-font (font-spec :family "FiraCode Nerd Font"))
 
-(set-frame-parameter nil 'alpha-background 95)
-(add-to-list 'default-frame-alist '(alpha-background . 95))
+(set-frame-parameter nil 'alpha-background 90)
+(add-to-list 'default-frame-alist '(alpha-background . 90))
+
+(custom-set-faces!
+  '(org-list-dt :foreground "#ffffff")
+  '(org-block :background "#18150e" :height 1.1)
+  '(org-level-1 :inherit outline-1 :height 1.5)
+  '(org-level-2 :inherit outline-2 :height 1.5)
+  '(org-level-3 :inherit outline-7 :height 1.5)
+  '(org-level-4 :inherit outline-4 :height 1.5)
+  '(org-level-5 :inherit outline-5 :height 1.5)
+  '(org-level-6 :inherit outline-6 :height 1.5)
+  '(org-level-7 :inherit outline-7 :height 1.5)
+  '(org-level-8 :inherit outline-8 :height 1.5)
+  '(org-document-title :height 2.0)
+  '(org-document-info :height 1.75))
+
 #+end_src
 
 ** Editor
