@@ -319,15 +319,17 @@ A handy minimap.
 Function to play media playlists using vterm.
 Adapted from https://www.reddit.com/r/emacs/comments/op4fcm/send_command_to_vterm_and_execute_it/.
 #+begin_src elisp
-(defun personal/playlist-mpv ()
+(defun personal/playlist-mpv (&optional args)
   "Play the media is current directory as a playlist using MPV."
   (interactive)
   (vterm)
   (vterm--goto-line -1)
-  (vterm-send-string "mpv .")
+  (vterm-send-string (concat "mpv " args " ."))
   (vterm-send-return))
 
-(map! :leader "p l" #'personal/playlist-mpv)
+;; Passing arguments to functions invoked via a keymap? Answer: https://emacs.stackexchange.com/a/80637
+(map! :leader "v t p" #'(lambda () (interactive) (personal/playlist-mpv)))
+(map! :leader "v t s p" #'(lambda () (interactive) (personal/playlist-mpv "--shuffle")))
 #+end_src
 
 ** PDF View
