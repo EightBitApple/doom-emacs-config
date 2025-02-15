@@ -49,10 +49,10 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
                                         ;(unpin! t)
                                         ;
-(package! elfeed-tube :pin "0c3fbc21259e1fa794f3179a53b410ba610231f2")
+(package! elfeed-tube :pin "ce2b5071d153fdda15ad6166a33f1846084d7504")
 (package! elfeed-goodies :pin "544ef42ead011d960a0ad1c1d34df5d222461a6b")
-(package! elfeed-tube-mpv :pin "0c3fbc21259e1fa794f3179a53b410ba610231f2")
-(package! dired-launch :pin "ba41242f303b59c202a7591b2c68400511170e81")
+(package! elfeed-tube-mpv :pin "ce2b5071d153fdda15ad6166a33f1846084d7504")
+(package! dired-launch :pin "97eb002a2090518df86182e9f1db703850534fb7")
 (package! org-auto-tangle :pin "817eabf902e759e96782bdc54d2dab36c4a2c5ab")
 (package! org-present :pin "4ec04e1b77dea76d7c30066ccf3200d2e0b7bee9")
 (package! plantuml-mode :pin "ea45a13707abd2a70df183f1aec6447197fc9ccc")
@@ -68,6 +68,6 @@
                  :files ("*.el" "*.py" "acm" "core" "langserver" "multiserver" "resources")
                  ;; do not perform byte compilation or native compilation for lsp-bridge
                  :build (:not compile))
-        :pin "c87e6ac6d452b3bd94583a5c5edb16f37edadb94")
-  (package! markdown-mode :pin "7659bc470d096e7a53285fa246cbabcb07d66a33")
+        :pin "4401d1396dce89d1fc5dc5414565818dd1c30ae0")
+  (package! markdown-mode :pin "038f0fb9789afafff99b7f23de107862dde113ee")
   (package! yasnippet :pin "5b315f1753480ebe669b157b8242448b5eafcfea"))
