@@ -57,7 +57,7 @@
 (package! org-present :pin "4ec04e1b77dea76d7c30066ccf3200d2e0b7bee9")
 (package! plantuml-mode :pin "ea45a13707abd2a70df183f1aec6447197fc9ccc")
 (package! org-auto-tangle :pin "817eabf902e759e96782bdc54d2dab36c4a2c5ab")
-(package! yeetube :pin "7b1bc7529b58dfe93a284959d5f494d5562adb00")
+(package! yeetube :pin "eb76b1d644170f2a685882a207e4644c399bb668")
 (package! gnosis :pin "263075f83498b387161fef3e82b8b6f3619ff77a")
 (package! gruber-darker-theme :pin "2e9f99c41fe8ef0557e9ea0f3b94ef50c68b5557")
 
@@ -68,6 +68,6 @@
                  :files ("*.el" "*.py" "acm" "core" "langserver" "multiserver" "resources")
                  ;; do not perform byte compilation or native compilation for lsp-bridge
                  :build (:not compile))
-        :pin "4401d1396dce89d1fc5dc5414565818dd1c30ae0")
-  (package! markdown-mode :pin "038f0fb9789afafff99b7f23de107862dde113ee")
+        :pin "7353c62fcb837b32250a600c882591921f24bef4")
+  (package! markdown-mode :pin "d2d960bec164e91e1a3315b176e2bcc324e63c95")
   (package! yasnippet :pin "5b315f1753480ebe669b157b8242448b5eafcfea"))
