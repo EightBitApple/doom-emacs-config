@@ -335,8 +335,8 @@ Adapted from https://www.reddit.com/r/emacs/comments/op4fcm/send_command_to_vter
   (vterm-send-return))
 
 ;; Passing arguments to functions invoked via a keymap? Answer: https://emacs.stackexchange.com/a/80637
-(map! :leader "v t p" #'(lambda () (interactive) (personal/playlist-mpv)))
-(map! :leader "v t s p" #'(lambda () (interactive) (personal/playlist-mpv "--shuffle")))
+(map! :leader "v t p" #'(lambda () (interactive) (personal/playlist-mpv "--volume=50")))
+(map! :leader "v t s p" #'(lambda () (interactive) (personal/playlist-mpv "--volume=50 --shuffle")))
 #+end_src
 
 ** PDF View
