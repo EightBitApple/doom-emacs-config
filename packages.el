@@ -69,5 +69,5 @@
                  ;; do not perform byte compilation or native compilation for lsp-bridge
                  :build (:not compile))
         :pin "fdc6ab6726d5b959b60d7e5bcb9b78e32614d46b")
-  (package! markdown-mode :pin "d2d960bec164e91e1a3315b176e2bcc324e63c95")
-  (package! yasnippet :pin "5b315f1753480ebe669b157b8242448b5eafcfea"))
+  (package! markdown-mode :pin "258313ef2b492c3c504efb37fefd0e6085deb2e6")
+  (package! yasnippet :pin "2384fe1655c60e803521ba59a34c0a7e48a25d06"))
