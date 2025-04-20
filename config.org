@@ -45,7 +45,10 @@
   '(org-level-7 :inherit outline-7 :height 1.5)
   '(org-level-8 :inherit outline-8 :height 1.5)
   '(org-document-title :height 2.0)
-  '(org-document-info :height 1.75))
+  '(org-document-info :height 1.75)
+
+  '(line-number :foreground "dark grey")
+  '(diredfl-symlink :foreground "pale turquoise"))
 
 #+end_src
 
