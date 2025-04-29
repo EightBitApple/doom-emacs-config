@@ -55,7 +55,7 @@
 (package! dired-launch :pin "97eb002a2090518df86182e9f1db703850534fb7")
 (package! org-present :pin "4ec04e1b77dea76d7c30066ccf3200d2e0b7bee9")
 (package! plantuml-mode :pin "ea45a13707abd2a70df183f1aec6447197fc9ccc")
-(package! org-auto-tangle :pin "817eabf902e759e96782bdc54d2dab36c4a2c5ab")
+(package! org-auto-tangle :pin "56e7afc35e4a6321d11c535600c287dbb1a90bc3")
 (package! gnosis :pin "263075f83498b387161fef3e82b8b6f3619ff77a")
 (package! gruber-darker-theme :pin "2e9f99c41fe8ef0557e9ea0f3b94ef50c68b5557")
 
@@ -66,6 +66,6 @@
                  :files ("*.el" "*.py" "acm" "core" "langserver" "multiserver" "resources")
                  ;; do not perform byte compilation or native compilation for lsp-bridge
                  :build (:not compile))
-        :pin "fdc6ab6726d5b959b60d7e5bcb9b78e32614d46b")
+        :pin "99ecf6630d234410006e09f11ba75b1e3ca135c9")
   (package! markdown-mode :pin "258313ef2b492c3c504efb37fefd0e6085deb2e6")
   (package! yasnippet :pin "2384fe1655c60e803521ba59a34c0a7e48a25d06"))
