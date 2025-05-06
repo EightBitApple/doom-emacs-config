@@ -66,6 +66,6 @@
                  :files ("*.el" "*.py" "acm" "core" "langserver" "multiserver" "resources")
                  ;; do not perform byte compilation or native compilation for lsp-bridge
                  :build (:not compile))
-        :pin "99ecf6630d234410006e09f11ba75b1e3ca135c9")
-  (package! markdown-mode :pin "258313ef2b492c3c504efb37fefd0e6085deb2e6")
+        :pin "015000f71c9302c3a08d823ff860602c6cce6577")
+  (package! markdown-mode :pin "90ad4af79a8bb65a3a5cdd6314be44abd9517cfc")
   (package! yasnippet :pin "2384fe1655c60e803521ba59a34c0a7e48a25d06"))
