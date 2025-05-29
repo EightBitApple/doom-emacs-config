@@ -10,7 +10,6 @@
   - [[#doom-modeline][Doom Modeline]]
 - [[#functionality][Functionality]]
   - [[#org-mode][Org Mode]]
-  - [[#org-roam][Org Roam]]
   - [[#easy-window-resizing][Easy Window Resizing]]
   - [[#emacs-web-wowser][Emacs Web Wowser]]
   - [[#elfeed][Elfeed]]
@@ -120,12 +119,6 @@ The snippet below integrates this with Org Mode.
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((plantuml . t))) ; this line activates plantuml
-#+end_src
-
-** Org Roam
-#+begin_src elisp
-(setq org-roam-directory (file-truename "~/documents/org/roam"))
-(org-roam-db-autosync-mode)
 #+end_src
 
 ** Easy Window Resizing
