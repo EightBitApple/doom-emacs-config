@@ -319,6 +319,10 @@ A handy minimap.
 #+end_src
 
 ** Vterm
+#+begin_src elisp
+(setq vterm-shell "/run/current-system/sw/bin/fish")
+#+end_src
+
 Function to play media playlists using vterm.
 Adapted from https://www.reddit.com/r/emacs/comments/op4fcm/send_command_to_vterm_and_execute_it/.
 #+begin_src elisp
