@@ -49,23 +49,9 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
                                         ;(unpin! t)
                                         ;
-(package! elfeed-tube :pin "79d5a08d76ea3ae96d7def9a5e2ede2e3562462a")
 (package! elfeed-goodies :pin "544ef42ead011d960a0ad1c1d34df5d222461a6b")
-(package! elfeed-tube-mpv :pin "79d5a08d76ea3ae96d7def9a5e2ede2e3562462a")
 (package! dired-launch :pin "97eb002a2090518df86182e9f1db703850534fb7")
 (package! org-present :pin "4ec04e1b77dea76d7c30066ccf3200d2e0b7bee9")
 (package! plantuml-mode :pin "348e83ff193051d5ad332642100dd704f6e2a6d2")
 (package! org-auto-tangle :pin "56e7afc35e4a6321d11c535600c287dbb1a90bc3")
-(package! gnosis :pin "c7a3e289a2544b5ecd93215ac183bef23228ec13")
 (package! gruber-darker-theme :pin "2e9f99c41fe8ef0557e9ea0f3b94ef50c68b5557")
-
-(when (package! lsp-bridge
-        :recipe (:host github
-                 :repo "manateelazycat/lsp-bridge"
-                 :branch "master"
-                 :files ("*.el" "*.py" "acm" "core" "langserver" "multiserver" "resources")
-                 ;; do not perform byte compilation or native compilation for lsp-bridge
-                 :build (:not compile))
-        :pin "3b37a04bd1b6bbcdc2b0ad7a5c388ad027eb7a25")
-  (package! markdown-mode :pin "7c51a2167c5a1330e0ab52fe5b2d03c1ead122ca")
-  (package! yasnippet :pin "c1e6ff23e9af16b856c88dfaab9d3ad7b746ad37"))
