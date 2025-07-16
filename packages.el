@@ -55,3 +55,13 @@
 (package! plantuml-mode :pin "348e83ff193051d5ad332642100dd704f6e2a6d2")
 (package! org-auto-tangle :pin "56e7afc35e4a6321d11c535600c287dbb1a90bc3")
 (package! gruber-darker-theme :pin "2e9f99c41fe8ef0557e9ea0f3b94ef50c68b5557")
+
+(when (package! lsp-bridge :pin "3b37a04bd1b6bbcdc2b0ad7a5c388ad027eb7a25"
+        :recipe (:host github
+                 :repo "manateelazycat/lsp-bridge"
+                 :branch "master"
+                 :files ("*.el" "*.py" "acm" "core" "langserver" "multiserver" "resources")
+                 ;; do not perform byte compilation or native compilation for lsp-bridge
+                 :build (:not compile)))
+(package! markdown-mode :pin "fc4fff89bae976ff4a594a538e6ef11820440c1f")
+(package! yasnippet :pin "c1e6ff23e9af16b856c88dfaab9d3ad7b746ad37"))

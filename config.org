@@ -20,6 +20,7 @@
   - [[#vterm][Vterm]]
   - [[#pdf-view][PDF View]]
   - [[#yeetube][Yeetube]]
+  - [[#lsp-bridge][LSP-Bridge]]
   - [[#debug-adaptor-protocol-dap][Debug Adaptor Protocol (DAP)]]
   - [[#macros][Macros]]
 
@@ -351,6 +352,13 @@ Adapted from https://www.reddit.com/r/emacs/comments/op4fcm/send_command_to_vter
   (interactive)
   (kill-new (yeetube-get-url))
   (message "URL copied."))
+#+end_src
+
+** LSP-Bridge
+#+begin_src elisp
+(use-package! lsp-bridge
+  :config
+  (global-lsp-bridge-mode))
 #+end_src
 
 ** Debug Adaptor Protocol (DAP)
