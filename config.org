@@ -34,7 +34,7 @@
 
 (custom-set-faces!
   '(org-list-dt :foreground "#ffffff")
-  '(org-block :background "#18150e" :height 1.1)
+  '(org-block :background "#1d2021" :height 1.1)
   '(org-level-1 :inherit outline-1 :height 1.5)
   '(org-level-2 :inherit outline-2 :height 1.5)
   '(org-level-3 :inherit outline-7 :height 1.5)
@@ -47,8 +47,8 @@
   '(org-document-info :height 1.75)
 
   '(line-number :foreground "dark grey")
-  '(diredfl-symlink :foreground "pale turquoise"))
-
+  '(diredfl-symlink :foreground "pale turquoise")
+  '(org-code :foreground "goldenrod"))
 #+end_src
 
 ** Editor
