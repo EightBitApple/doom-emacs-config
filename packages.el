@@ -53,5 +53,5 @@
 (package! dired-launch :pin "97eb002a2090518df86182e9f1db703850534fb7")
 (package! org-present :pin "4ec04e1b77dea76d7c30066ccf3200d2e0b7bee9")
 (package! plantuml-mode :pin "348e83ff193051d5ad332642100dd704f6e2a6d2")
-(package! org-auto-tangle :pin "56e7afc35e4a6321d11c535600c287dbb1a90bc3")
+(package! org-auto-tangle :pin "b4e7abc019179df473ecddf0af80561ddad8fc58")
 (package! gruber-darker-theme :pin "2e9f99c41fe8ef0557e9ea0f3b94ef50c68b5557")
