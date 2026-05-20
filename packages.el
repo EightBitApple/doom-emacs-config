@@ -55,3 +55,4 @@
 (package! plantuml-mode :pin "348e83ff193051d5ad332642100dd704f6e2a6d2")
 (package! org-auto-tangle :pin "b4e7abc019179df473ecddf0af80561ddad8fc58")
 (package! gruber-darker-theme :pin "2e9f99c41fe8ef0557e9ea0f3b94ef50c68b5557")
+(package! py-autopep8 :pin "f07d487a6cd63a8c8a44ec8b5e93b762aca97566")
